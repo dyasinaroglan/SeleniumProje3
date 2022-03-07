@@ -60,7 +60,11 @@ public class Proje4 extends BaseStaticDriver {
         WebElement checkOut = driver.findElement(By.cssSelector("button[id='checkout']"));
         checkOut.click();
 
-        WebElement selectCountry = driver.findElement(By.cssSelector("select[class='valid']"));
+        WebElement company = driver.findElement(By.cssSelector("input#BillingNewAddress_Company"));
+        if (company.isDisplayed()) {
+            company.sendKeys("input#BillingNewAddress_Company");
+        }
+        WebElement selectCountry = driver.findElement(By.cssSelector("select#BillingNewAddress_CountryId"));
         if (selectCountry.isDisplayed()) {
             Select select = new Select(selectCountry);
             select.selectByValue("12");
